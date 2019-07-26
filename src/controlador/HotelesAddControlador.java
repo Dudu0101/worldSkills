@@ -10,6 +10,7 @@ import dao.HotelesDao;
 import dao.PaisesDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
 import modelo.Ciudades_Paises;
 import modelo.Hoteles;
 import modelo.Paises;
@@ -30,12 +31,15 @@ public class HotelesAddControlador implements ActionListener{
     HotelesDao dao = new HotelesDao();
     PaisesDao dao2 = new PaisesDao();
     CiudadesPaisesDao dao3= new CiudadesPaisesDao();
+    DefaultComboBoxModel paisesAdd= new DefaultComboBoxModel();
     
     JfrmAddHotel addHotel;
 
     public HotelesAddControlador(JfrmAddHotel addHotel) {
         this.addHotel = addHotel;
         setActionsListeners();
+        validarCampos();
+        llenarPaisesHoteles();
     }
     
     /*
@@ -61,8 +65,33 @@ public class HotelesAddControlador implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(e.getSource()==addHotel.jCmbxPaiseHotel){
+            llenarCiudadesHoteles();
+        }
     }
     
+    public void validarCampos(){
+        Validar valid= new Validar();
+        valid.ValidarSoloLetras(addHotel.jTxtNombreHotel);
+        valid.ValidarSoloNumeros(addHotel.jTxtTelefonoHotel, 7);   
+    }
+    
+    //Metodo para llenar el ComboBox de Paises
+    public void llenarPaisesHoteles() {
+        for (Paises pais : dao2.verPaises()) {
+            paisesAdd.addElement(pais.getNombre());
+        }
+        addHotel.jCmbxPaiseHotel.setModel(paisesAdd);
+    }
+    
+    //Metodo para llenar el ComboBox de Ciudades dependiendo el pais
+    public void llenarCiudadesHoteles() {
+        DefaultComboBoxModel verCiudades = new DefaultComboBoxModel();
+        cidpas.setPais(String.valueOf(addHotel.jCmbxPaiseHotel.getSelectedItem()));
+        for (Ciudades_Paises cidpas : dao3.verCiudades(cidpas)) {
+            verCiudades.addElement(cidpas.getCiudad());
+        }
+        addHotel.jCmbCiudadesHotel.setModel(verCiudades);
+    }
 
 }
