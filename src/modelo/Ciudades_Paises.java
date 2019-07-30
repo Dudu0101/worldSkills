@@ -12,6 +12,13 @@ public class Ciudades_Paises {
         this.ciudad = ciudad;
     }
 
+    public Ciudades_Paises(int ciudad_id, String pais) {
+        this.ciudad_id = ciudad_id;
+        this.pais = pais;
+    }
+    
+    
+
     public Ciudades_Paises() {
     }
 
@@ -39,4 +46,10 @@ public class Ciudades_Paises {
         this.ciudad = ciudad;
     }
 
+    @Override
+    public String toString() {
+        return "Ciudades_Paises{" + "ciudad_id=" + ciudad_id + ", pais=" + pais + ", ciudad=" + ciudad + '}';
+    }
+
+    
 }

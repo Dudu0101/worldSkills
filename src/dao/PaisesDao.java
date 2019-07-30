@@ -20,13 +20,14 @@ public class PaisesDao implements PaisesInterface {
     public ArrayList<Paises> verPaises() {
         lista = new ArrayList();
         conec.abrirConexion();
-        sql = "select nombre from paises";
+        sql = "select * from paises";
         try {
             ejecutar = conec.getConexion().prepareStatement(sql);
             resultado = ejecutar.executeQuery();
             while (resultado.next()) {
                 paises = new Paises();
                 paises.setNombre(resultado.getString("nombre"));
+                paises.setPais_id(resultado.getInt("pais_id"));
                 lista.add(paises);
             }
         } catch (Exception e) {

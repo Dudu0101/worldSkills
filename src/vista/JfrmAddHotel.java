@@ -55,6 +55,8 @@ public class JfrmAddHotel extends javax.swing.JFrame {
         jCmbCiudadesHotel = new javax.swing.JComboBox<>();
         jCmbxPaiseHotel = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
+        jCmbxPaiseHotel1 = new javax.swing.JComboBox<>();
+        jCmbCiudadesHotel1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -152,11 +154,15 @@ public class JfrmAddHotel extends javax.swing.JFrame {
         getContentPane().add(jTxtTelefonoHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 310, -1));
 
         jCmbCiudadesHotel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jCmbCiudadesHotel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCmbCiudadesHotel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Ciudad" }));
         getContentPane().add(jCmbCiudadesHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 310, -1));
 
         jCmbxPaiseHotel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jCmbxPaiseHotel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCmbxPaiseHotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCmbxPaiseHotelActionPerformed(evt);
+            }
+        });
         getContentPane().add(jCmbxPaiseHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 310, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -172,8 +178,28 @@ public class JfrmAddHotel extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 470, 20));
 
+        jCmbxPaiseHotel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jCmbxPaiseHotel1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCmbxPaiseHotel1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCmbxPaiseHotel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 100, -1));
+
+        jCmbCiudadesHotel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jCmbCiudadesHotel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Ciudad" }));
+        getContentPane().add(jCmbCiudadesHotel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 100, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCmbxPaiseHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbxPaiseHotelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCmbxPaiseHotelActionPerformed
+
+    private void jCmbxPaiseHotel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbxPaiseHotel1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCmbxPaiseHotel1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,7 +240,9 @@ public class JfrmAddHotel extends javax.swing.JFrame {
     public javax.swing.JButton jBtnCancelar;
     public javax.swing.JButton jBtnGuardar;
     public javax.swing.JComboBox<String> jCmbCiudadesHotel;
+    public javax.swing.JComboBox<String> jCmbCiudadesHotel1;
     public javax.swing.JComboBox<String> jCmbxPaiseHotel;
+    public javax.swing.JComboBox<String> jCmbxPaiseHotel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -229,7 +257,7 @@ public class JfrmAddHotel extends javax.swing.JFrame {
     public javax.swing.JRadioButton jRbtnCat3;
     public javax.swing.JRadioButton jRbtnCat4;
     public javax.swing.JRadioButton jRbtnCat5;
-    private javax.swing.ButtonGroup jRbtnGrpCategoria;
+    public javax.swing.ButtonGroup jRbtnGrpCategoria;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

@@ -21,12 +21,13 @@ public class CiudadesPaisesDao implements Ciudades_PaisesInterface {
         try {
             conec.abrirConexion();
             lista = new ArrayList();
-            sql = "select ciudad from ciudades_pais where pais=?";
+            sql = "select * from ciudades_pais where pais=?";
             ejecutar = conec.getConexion().prepareStatement(sql);
             ejecutar.setString(1, cidpas.getPais());
             resultado = ejecutar.executeQuery();
             while (resultado.next()) {
                 cidPais = new Ciudades_Paises();
+                cidPais.setCiudad_id(resultado.getInt("ciudad_id"));
                 cidPais.setCiudad(resultado.getString("ciudad"));
                 lista.add(cidPais);
             }
