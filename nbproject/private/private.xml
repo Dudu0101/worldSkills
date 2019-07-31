@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/worldSkills/src/modelo/Ciudades_Paises.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/worldSkills/src/dao/HotelesDao.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/worldSkills/src/worldskillsdia1fase2/WorldSkillsDia1Fase2.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/worldSkills/src/dao/CiudadesPaisesDao.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/worldSkills/src/vista/JfrmAdminHoteles.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/worldSkills/src/vista/JfrmAddHotel.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/worldSkills/src/controlador/HotelesAddControlador.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/worldSkills/src/vista/JfrmModificarHotel.java</file>
-            <file>file:/C:/Users/javam2019/Documents/GitHub/worldSkills/src/controlador/Validar.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

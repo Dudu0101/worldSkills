@@ -8,9 +8,11 @@ package controlador;
 import vista.JfrmModificarHotel;
 
 public class HotelesModControlador {
-    
+
     JfrmModificarHotel vistaMod;
-    
-    
-    
+
+    public HotelesModControlador(JfrmModificarHotel vistaMod) {
+        this.vistaMod = vistaMod;
+    }
+
 }
