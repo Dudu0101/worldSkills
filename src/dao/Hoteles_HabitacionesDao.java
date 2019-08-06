@@ -33,6 +33,7 @@ public class Hoteles_HabitacionesDao implements Hoteles_HabitacionesInterfaz {
                 hothabs.setCategoria(resultado.getString("categoria_nombre"));
                 hothabs.setTelefono(resultado.getInt("telefono"));
                 hothabs.setCiudad(resultado.getString("ciudad"));
+                hothabs.setDireccion(resultado.getString("direccion"));
                 hothabs.setCantidadHabitaciones(resultado.getInt("cantidad_habitaciones"));
                 lista.add(hothabs);
             }
@@ -61,6 +62,7 @@ public class Hoteles_HabitacionesDao implements Hoteles_HabitacionesInterfaz {
                 hothabs.setCategoria(resultado.getString("categoria_nombre"));
                 hothabs.setTelefono(resultado.getInt("telefono"));
                 hothabs.setCiudad(resultado.getString("ciudad"));
+                hothabs.setDireccion(resultado.getString("direccion"));
                 hothabs.setCantidadHabitaciones(resultado.getInt("cantidad_habitaciones"));
                 lista.add(hothabs);
             }
@@ -88,12 +90,15 @@ public class Hoteles_HabitacionesDao implements Hoteles_HabitacionesInterfaz {
                 hothabs.setCategoria(resultado.getString("categoria_nombre"));
                 hothabs.setTelefono(resultado.getInt("telefono"));
                 hothabs.setCiudad(resultado.getString("ciudad"));
+                hothabs.setDireccion(resultado.getString("direccion"));
                 hothabs.setCantidadHabitaciones(resultado.getInt("cantidad_habitaciones"));
                 lista.add(hothabs);
             }
             resultado.close();
         } catch (SQLException ex) {
             System.out.println("Error en daoVerHotelesNombre " + ex);
+        } finally{
+            cone.cerrarConexion();
         }
         return lista;
     }
