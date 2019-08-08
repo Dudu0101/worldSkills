@@ -55,107 +55,82 @@ public class JfrmAddHotel extends javax.swing.JFrame {
         jCmbCiudadesHotel = new javax.swing.JComboBox<>();
         jCmbxPaiseHotel = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
-        jCmbxPaiseHotel1 = new javax.swing.JComboBox<>();
-        jCmbCiudadesHotel1 = new javax.swing.JComboBox<>();
+        jCmbCiudadesHotelId = new javax.swing.JComboBox<>();
+        jLblError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setText("Nuevo Hotel");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 20, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Nombre:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("Correo:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel4.setText("Telefono:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("Direccion:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Ciudad:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setText("País:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Categoría - Estrellas");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 420, 10));
 
         jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 360, 10, 50));
 
         jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 260, 10));
 
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 10, 50));
 
         jRbtnGrpCategoria.add(jRbtnCat1);
         jRbtnCat1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jRbtnCat1.setText("1");
-        getContentPane().add(jRbtnCat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
         jRbtnGrpCategoria.add(jRbtnCat2);
         jRbtnCat2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jRbtnCat2.setText("2");
-        getContentPane().add(jRbtnCat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, -1, -1));
 
         jRbtnGrpCategoria.add(jRbtnCat3);
         jRbtnCat3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jRbtnCat3.setText("3");
-        getContentPane().add(jRbtnCat3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
 
         jRbtnGrpCategoria.add(jRbtnCat4);
         jRbtnCat4.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jRbtnCat4.setText("4");
-        getContentPane().add(jRbtnCat4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
 
         jRbtnGrpCategoria.add(jRbtnCat5);
         jRbtnCat5.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jRbtnCat5.setText("5");
-        getContentPane().add(jRbtnCat5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, -1, -1));
 
         jBtnCancelar.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jBtnCancelar.setText("Cancelar");
-        getContentPane().add(jBtnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
 
         jBtnGuardar.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jBtnGuardar.setText("Guardar");
-        getContentPane().add(jBtnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
 
         jTxtDireccionHotel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(jTxtDireccionHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 310, -1));
 
         jTxtNombreHotel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(jTxtNombreHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 310, -1));
 
         jTxtCorreoHotel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(jTxtCorreoHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 310, -1));
 
         jTxtTelefonoHotel.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        getContentPane().add(jTxtTelefonoHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 310, -1));
 
         jCmbCiudadesHotel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jCmbCiudadesHotel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Ciudad" }));
-        getContentPane().add(jCmbCiudadesHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 310, -1));
 
         jCmbxPaiseHotel.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
         jCmbxPaiseHotel.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +138,6 @@ public class JfrmAddHotel extends javax.swing.JFrame {
                 jCmbxPaiseHotelActionPerformed(evt);
             }
         });
-        getContentPane().add(jCmbxPaiseHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 310, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -176,19 +150,147 @@ public class JfrmAddHotel extends javax.swing.JFrame {
             .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 470, 20));
+        jCmbCiudadesHotelId.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jCmbCiudadesHotelId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Ciudad" }));
 
-        jCmbxPaiseHotel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jCmbxPaiseHotel1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCmbxPaiseHotel1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jCmbxPaiseHotel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 100, -1));
+        jLblError.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLblError.setForeground(new java.awt.Color(204, 0, 0));
+        jLblError.setText("Correo Invalido");
 
-        jCmbCiudadesHotel1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
-        jCmbCiudadesHotel1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione Ciudad" }));
-        getContentPane().add(jCmbCiudadesHotel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, 100, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel2)
+                        .addGap(3, 3, 3)
+                        .addComponent(jTxtNombreHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel3)
+                        .addGap(3, 3, 3)
+                        .addComponent(jTxtCorreoHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLblError))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel4)
+                        .addGap(6, 6, 6)
+                        .addComponent(jTxtTelefonoHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel5)
+                        .addGap(10, 10, 10)
+                        .addComponent(jTxtDireccionHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel8)
+                        .addGap(6, 6, 6)
+                        .addComponent(jCmbxPaiseHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jRbtnCat1)
+                                .addGap(39, 39, 39)
+                                .addComponent(jRbtnCat2)))
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jRbtnCat3)
+                                .addGap(29, 29, 29)
+                                .addComponent(jRbtnCat4)
+                                .addGap(29, 29, 29)
+                                .addComponent(jRbtnCat5)))
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jBtnGuardar)
+                        .addGap(138, 138, 138)
+                        .addComponent(jBtnCancelar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(50, 50, 50)
+                            .addComponent(jLabel6)
+                            .addGap(2, 2, 2)
+                            .addComponent(jCmbCiudadesHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(10, 10, 10)
+                            .addComponent(jCmbCiudadesHotelId, 0, 0, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jTxtNombreHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTxtCorreoHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLblError)))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jTxtTelefonoHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jTxtDireccionHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jCmbxPaiseHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jCmbCiudadesHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCmbCiudadesHotelId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRbtnCat1)
+                            .addComponent(jRbtnCat2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRbtnCat3)
+                                    .addComponent(jRbtnCat4)
+                                    .addComponent(jRbtnCat5)))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBtnGuardar)
+                    .addComponent(jBtnCancelar))
+                .addGap(3, 3, 3)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -196,10 +298,6 @@ public class JfrmAddHotel extends javax.swing.JFrame {
     private void jCmbxPaiseHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbxPaiseHotelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCmbxPaiseHotelActionPerformed
-
-    private void jCmbxPaiseHotel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCmbxPaiseHotel1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCmbxPaiseHotel1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,9 +338,8 @@ public class JfrmAddHotel extends javax.swing.JFrame {
     public javax.swing.JButton jBtnCancelar;
     public javax.swing.JButton jBtnGuardar;
     public javax.swing.JComboBox<String> jCmbCiudadesHotel;
-    public javax.swing.JComboBox<String> jCmbCiudadesHotel1;
+    public javax.swing.JComboBox<String> jCmbCiudadesHotelId;
     public javax.swing.JComboBox<String> jCmbxPaiseHotel;
-    public javax.swing.JComboBox<String> jCmbxPaiseHotel1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -251,6 +348,7 @@ public class JfrmAddHotel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    public javax.swing.JLabel jLblError;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JRadioButton jRbtnCat1;
     public javax.swing.JRadioButton jRbtnCat2;
