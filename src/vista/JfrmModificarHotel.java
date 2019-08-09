@@ -55,6 +55,7 @@ public class JfrmModificarHotel extends javax.swing.JFrame {
         jCmbCiudadesMod = new javax.swing.JComboBox<>();
         jCmbxPaiseMod = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
+        jCmbCiudadesId = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -172,6 +173,9 @@ public class JfrmModificarHotel extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 470, 20));
 
+        jCmbCiudadesId.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jCmbCiudadesId, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 290, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -216,6 +220,7 @@ public class JfrmModificarHotel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jBtnCancelarMod;
     public javax.swing.JButton jBtnModificar;
+    public javax.swing.JComboBox<String> jCmbCiudadesId;
     public javax.swing.JComboBox<String> jCmbCiudadesMod;
     public javax.swing.JComboBox<String> jCmbxPaiseMod;
     private javax.swing.JLabel jLabel1;

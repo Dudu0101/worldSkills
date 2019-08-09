@@ -150,7 +150,6 @@ public class HotelesAddControlador implements ActionListener, KeyListener {
         contarErroneas = 0;
         verificacion = false;
         Validar valid = new Validar();
-        valid.ValidarSoloLetras(addHotel.jTxtNombreHotel);
         valid.ValidarSoloNumeros(addHotel.jTxtTelefonoHotel, 7);
         if (!addHotel.jTxtCorreoHotel.getText().contains("@")
                 || !addHotel.jTxtCorreoHotel.getText().contains(".")) {
@@ -180,6 +179,7 @@ public class HotelesAddControlador implements ActionListener, KeyListener {
     *Metodo para llenar el ComboBox de Ciudades dependiendo el pais
      */
     public void llenarCiudadesHoteles() {
+        System.out.println("DaoEjecutado");
         DefaultComboBoxModel verCiudades = new DefaultComboBoxModel();
         //llenar el combo de ciudades
         DefaultComboBoxModel verCiudadesId = new DefaultComboBoxModel();

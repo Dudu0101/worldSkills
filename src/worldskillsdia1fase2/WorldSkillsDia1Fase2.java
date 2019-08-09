@@ -5,8 +5,8 @@
  */
 package worldskillsdia1fase2;
 
-import controlador.HotelesAddControlador;
-import vista.JfrmAddHotel;
+import controlador.HotelesModControlador;
+import vista.JfrmModificarHotel;
 
 /**
  *
@@ -20,10 +20,13 @@ public class WorldSkillsDia1Fase2 {
     public static void main(String[] args) {
         /*JfrmAdminHoteles vista= new JfrmAdminHoteles();
         HotelesAdminControlador controlador= new HotelesAdminControlador(vista);
-        vista.setVisible(true);*/
+        vista.setVisible(true);
         JfrmAddHotel vista= new JfrmAddHotel();
         HotelesAddControlador controlador= new HotelesAddControlador(vista);
-        vista.setVisible(true);
+        vista.setVisible(true);*/
+        JfrmModificarHotel vista3= new JfrmModificarHotel();
+        HotelesModControlador controlador= new HotelesModControlador(vista3);
+        vista3.setVisible(true);
     }
     
 }

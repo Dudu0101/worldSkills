@@ -230,8 +230,10 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
         formHoteles.jTblHoteles.setModel(tabla);
     }
 
-    //Metodo para asignar tamaños especificos a la tabla para hacerla más
-    //amigable a la vista del usuario
+    /*
+    *Metodo para asignar tamaños especificos a la tabla para hacerla más
+    *amigable a la vista del usuario
+    */
     public void tamanios() {
         formHoteles.jTblHoteles.getColumnModel().getColumn(0).setMaxWidth(35);
         formHoteles.jTblHoteles.getColumnModel().getColumn(5).setMinWidth(0);
@@ -240,6 +242,9 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
         formHoteles.jTblHoteles.getColumnModel().getColumn(6).setMaxWidth(0);
     }
 
+    /*
+    *Método para asignar datos a la vista para modificar los hoteles
+    */
     public void obtenerDatos() {
         try {
             confirmar = false;
