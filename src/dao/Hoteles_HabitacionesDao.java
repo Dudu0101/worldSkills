@@ -18,6 +18,7 @@ public class Hoteles_HabitacionesDao implements Hoteles_HabitacionesInterfaz {
     ResultSet resultado;
     private String sql = null;
 
+    //Metodo para visualizar todos los datos de hoteles
     @Override
     public ArrayList<Hoteles_Habitaciones> verHoteles() {
         try {
@@ -33,6 +34,7 @@ public class Hoteles_HabitacionesDao implements Hoteles_HabitacionesInterfaz {
                 hothabs.setCategoria(resultado.getString("categoria_nombre"));
                 hothabs.setTelefono(resultado.getInt("telefono"));
                 hothabs.setCiudad(resultado.getString("ciudad"));
+                hothabs.setPais(resultado.getString("pais"));
                 hothabs.setDireccion(resultado.getString("direccion"));
                 hothabs.setCantidadHabitaciones(resultado.getInt("cantidad_habitaciones"));
                 lista.add(hothabs);
@@ -46,6 +48,7 @@ public class Hoteles_HabitacionesDao implements Hoteles_HabitacionesInterfaz {
         return lista;
     }
 
+    //Metodo para ver los hoteles por ciudad
     @Override
     public ArrayList<Hoteles_Habitaciones> verHotelesCiudad(Hoteles_Habitaciones hothab) {
         lista = new ArrayList();
@@ -75,6 +78,7 @@ public class Hoteles_HabitacionesDao implements Hoteles_HabitacionesInterfaz {
         return lista;
     }
 
+    //Metodo para ver los hoteles por nombre
     @Override
     public ArrayList<Hoteles_Habitaciones> verHotelesNombre(Hoteles_Habitaciones hothab) {
         lista = new ArrayList();

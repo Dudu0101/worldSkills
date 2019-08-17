@@ -1,5 +1,6 @@
 package controlador;
 
+import static controlador.VariablesStaticas.correo;
 import dao.CiudadesPaisesDao;
 import dao.Hoteles_HabitacionesDao;
 import dao.PaisesDao;
@@ -24,11 +25,12 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
     //Frames a importar
     JfrmAddHotel vistaAdd = new JfrmAddHotel();
     JfrmModificarHotel vistaMod = new JfrmModificarHotel();
-
+    public static JfrmAdminHoteles formHoteles;
+    
     //Controladores a importar
     HotelesAddControlador controladorAdd = new HotelesAddControlador(vistaAdd);
     HotelesModControlador controladorMod = new HotelesModControlador(vistaMod);
-    JfrmAdminHoteles formHoteles;
+
     DefaultComboBoxModel paises = new DefaultComboBoxModel();
 
     //Titulo de la tabla y modelo a utilizar
@@ -87,6 +89,10 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
                 vistaMod.setVisible(true);
             }
         }
+        if (e.getSource() == formHoteles.JBtnAdd) {
+            HotelesAddControlador controlador= new HotelesAddControlador(vistaAdd);
+            vistaAdd.setVisible(true);
+        }
     }
 
     @Override
@@ -113,7 +119,7 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
                 tamanios();
             }
         }
-        
+
     }
 
     @Override
@@ -172,7 +178,7 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
     public void verHoteles() {
         limpiarTabla();
         //tabla = new DefaultTableModel(titulos, 0);
-        Object[] filas = new Object[8];
+        Object[] filas = new Object[9];
         for (Hoteles_Habitaciones hothab : daoHabitaciones.verHoteles()) {
             filas[0] = tabla.getRowCount() + 1;
             filas[1] = hothab.getNombre();
@@ -180,8 +186,9 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
             filas[2] = hothab.getCategoria();
             filas[4] = hothab.getTelefono();
             filas[5] = hothab.getCiudad();
-            filas[6] = hothab.getDireccion();
-            filas[7] = hothab.getCantidadHabitaciones();
+            filas[6] = hothab.getPais();
+            filas[7] = hothab.getDireccion();
+            filas[8] = hothab.getCantidadHabitaciones();
             tabla.addRow(filas);
         }
         formHoteles.jTblHoteles.setModel(tabla);
@@ -193,17 +200,18 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
     public void verHotelesCiudad() {
         limpiarTabla();
         //tabla = new DefaultTableModel(titulos, 0);
-        Object[] filas = new Object[8];
+        Object[] filas = new Object[9];
         habitaciones.setCiudad(String.valueOf(formHoteles.jCmbxCiudades.getSelectedItem()));
         for (Hoteles_Habitaciones hothab : daoHabitaciones.verHotelesCiudad(habitaciones)) {
             filas[0] = tabla.getRowCount() + 1;
             filas[1] = hothab.getNombre();
-            filas[2] = hothab.getCorreoElectronico();
-            filas[3] = hothab.getCategoria();
+            filas[3] = hothab.getCorreoElectronico();
+            filas[2] = hothab.getCategoria();
             filas[4] = hothab.getTelefono();
             filas[5] = hothab.getCiudad();
-            filas[6] = hothab.getDireccion();
-            filas[7] = hothab.getCantidadHabitaciones();
+            filas[6] = hothab.getPais();
+            filas[7] = hothab.getDireccion();
+            filas[8] = hothab.getCantidadHabitaciones();
             tabla.addRow(filas);
         }
         formHoteles.jTblHoteles.setModel(tabla);
@@ -214,17 +222,18 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
      */
     public void verHotelesNombre(String nombre) {
         limpiarTabla();
-        Object[] filas = new Object[8];
+        Object[] filas = new Object[9];
         habitaciones.setNombre(nombre);
         for (Hoteles_Habitaciones hothab : daoHabitaciones.verHotelesNombre(habitaciones)) {
             filas[0] = tabla.getRowCount() + 1;
             filas[1] = hothab.getNombre();
-            filas[2] = hothab.getCategoria();
             filas[3] = hothab.getCorreoElectronico();
+            filas[2] = hothab.getCategoria();
             filas[4] = hothab.getTelefono();
             filas[5] = hothab.getCiudad();
-            filas[6] = hothab.getDireccion();
-            filas[7] = hothab.getCantidadHabitaciones();
+            filas[6] = hothab.getPais();
+            filas[7] = hothab.getDireccion();
+            filas[8] = hothab.getCantidadHabitaciones();
             tabla.addRow(filas);
         }
         formHoteles.jTblHoteles.setModel(tabla);
@@ -233,25 +242,41 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
     /*
     *Metodo para asignar tamaños especificos a la tabla para hacerla más
     *amigable a la vista del usuario
-    */
+     */
     public void tamanios() {
         formHoteles.jTblHoteles.getColumnModel().getColumn(0).setMaxWidth(35);
         formHoteles.jTblHoteles.getColumnModel().getColumn(5).setMinWidth(0);
         formHoteles.jTblHoteles.getColumnModel().getColumn(5).setMaxWidth(0);
         formHoteles.jTblHoteles.getColumnModel().getColumn(6).setMinWidth(0);
         formHoteles.jTblHoteles.getColumnModel().getColumn(6).setMaxWidth(0);
+        formHoteles.jTblHoteles.getColumnModel().getColumn(7).setMinWidth(0);
+        formHoteles.jTblHoteles.getColumnModel().getColumn(7).setMaxWidth(0);
     }
 
     /*
     *Método para asignar datos a la vista para modificar los hoteles
-    */
+     */
     public void obtenerDatos() {
         try {
             confirmar = false;
             vistaMod.jTxtNombreMod.setText(String.valueOf(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 1)));
             vistaMod.jTxtCorreoMod.setText(String.valueOf(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 3)));
+            correo=String.valueOf(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 3));
             vistaMod.jTxtTelefonoMod.setText(String.valueOf(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 4)));
-            vistaMod.jTxtDireccionMod.setText(String.valueOf(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 6)));
+            vistaMod.jTxtDireccionMod.setText(String.valueOf(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 7)));
+            vistaMod.jCmbxPaiseMod.setSelectedItem(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 6));
+            vistaMod.jCmbCiudadesMod.setSelectedItem(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 5));
+            if(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 2).equals("1 Estrellas")){
+                vistaMod.jRbtnCat1Mod.setSelected(true);
+            } else if(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 2).equals("2 Estrellas")){
+                vistaMod.jRbtnCat2Mod.setSelected(true);
+            } else if(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 2).equals("3 Estrellas")){
+                vistaMod.jRbtnCat3Mod.setSelected(true);
+            }else if(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 2).equals("4 Estrellas")){
+                vistaMod.jRbtnCat4Mod.setSelected(true);
+            }else if(formHoteles.jTblHoteles.getValueAt(formHoteles.jTblHoteles.getSelectedRow(), 2).equals("5 Estrellas")){
+                vistaMod.jRbtnCat5Mod.setSelected(true);
+            }
         } catch (Exception e) {
             confirmar = true;
         }

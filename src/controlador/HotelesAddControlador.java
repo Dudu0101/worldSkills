@@ -5,15 +5,15 @@
  */
 package controlador;
 
+import static controlador.HotelesAdminControlador.formHoteles;
 import dao.CiudadesPaisesDao;
+import dao.HabitacionesDao;
 import dao.HotelesDao;
 import dao.PaisesDao;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -28,16 +28,25 @@ import vista.JfrmAddHotel;
  */
 public class HotelesAddControlador implements ActionListener, KeyListener {
 
+    //Modelos a utilizar
     Hoteles hotel = new Hoteles();
     Paises paises = new Paises();
     Ciudades_Paises cidpas = new Ciudades_Paises();
 
     ArrayList<Ciudades_Paises> lista = new ArrayList();
 
+    //Daos a utilizar
     HotelesDao dao = new HotelesDao();
     PaisesDao dao2 = new PaisesDao();
     CiudadesPaisesDao dao3 = new CiudadesPaisesDao();
+    HabitacionesDao dao4 = new HabitacionesDao();
+
+    //ComboBox para Paises
     DefaultComboBoxModel paisesAdd = new DefaultComboBoxModel();
+    
+    //Controlador a utilizar
+    HotelesAdminControlador controlador;
+
     //llenar el combo de pais id
     DefaultComboBoxModel paisesIdAdd = new DefaultComboBoxModel();
 
@@ -99,11 +108,11 @@ public class HotelesAddControlador implements ActionListener, KeyListener {
         }
 
         if (e.getSource() == addHotel.jBtnGuardar) {
-
             validarCampos();
             agregarHoteles();
             addHotel.jBtnGuardar.setEnabled(false);
             confirmarCategorias = false;
+            controlador= new HotelesAdminControlador(formHoteles);
         }
 
         if (e.getSource() == addHotel.jRbtnCat1
@@ -111,16 +120,22 @@ public class HotelesAddControlador implements ActionListener, KeyListener {
                 || e.getSource() == addHotel.jRbtnCat3
                 || e.getSource() == addHotel.jRbtnCat4
                 || e.getSource() == addHotel.jRbtnCat5) {
+            //Verificamos si cualquier boton de la categoria fue seleccionado
+            
             if (addHotel.jRbtnGrpCategoria.isSelected(addHotel.jRbtnGrpCategoria.getSelection())) {
+                //Si alguno de los botones es seleccionado devolverá un true por lo tanto:
+                
                 confirmarCategorias = true;
+                
+                //Evaluamos aun si alguno de los TextField esta vacio o no
                 addHotel.jBtnGuardar.setEnabled(!addHotel.jTxtNombreHotel.getText().isEmpty()
                         && !addHotel.jTxtDireccionHotel.getText().isEmpty()
                         && !addHotel.jTxtCorreoHotel.getText().isEmpty()
                         && !addHotel.jTxtTelefonoHotel.getText().isEmpty() && confirmarCategorias);
             }
         }
-        
-        if(e.getSource()==addHotel.jBtnCancelar){
+
+        if (e.getSource() == addHotel.jBtnCancelar) {
             addHotel.dispose();
         }
     }
@@ -179,7 +194,6 @@ public class HotelesAddControlador implements ActionListener, KeyListener {
     *Metodo para llenar el ComboBox de Ciudades dependiendo el pais
      */
     public void llenarCiudadesHoteles() {
-        System.out.println("DaoEjecutado");
         DefaultComboBoxModel verCiudades = new DefaultComboBoxModel();
         //llenar el combo de ciudades
         DefaultComboBoxModel verCiudadesId = new DefaultComboBoxModel();
@@ -233,10 +247,21 @@ public class HotelesAddControlador implements ActionListener, KeyListener {
         if (verificacion == true) {
             tomarDatos();
             JOptionPane.showMessageDialog(addHotel, dao.agregarHotel(hotel), "Información", JOptionPane.INFORMATION_MESSAGE);
+            agregarHabitaciones();
             borrarCajas();
             addHotel.jTxtNombreHotel.requestFocus();
+            addHotel.jLblError.setVisible(false);
         }
 
+    }
+
+    /*
+     * Metodo para agregar Habitacion por defecto a la base de datos
+     */
+    public void agregarHabitaciones() {
+        byte tipo = 1;
+        String correo = hotel.getCorreoElectronico();
+        dao4.agregarHabitaciones(dao.verHotelId(correo), tipo);
     }
 
 }

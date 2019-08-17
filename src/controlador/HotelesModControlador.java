@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import static controlador.HotelesAdminControlador.formHoteles;
+import static controlador.VariablesStaticas.correo;
 import dao.CiudadesPaisesDao;
 import dao.HotelesDao;
 import dao.PaisesDao;
@@ -14,12 +16,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import modelo.Ciudades_Paises;
 import modelo.Hoteles;
 import modelo.Paises;
 import vista.JfrmModificarHotel;
 
-public class HotelesModControlador implements ActionListener, KeyListener {
+public class HotelesModControlador implements ActionListener{
 
     //MOdelos a utilizar
     Hoteles hotel = new Hoteles();
@@ -34,17 +37,27 @@ public class HotelesModControlador implements ActionListener, KeyListener {
 
     //Formulario a utilizar
     JfrmModificarHotel vistaMod;
+    
+    //Controladores a utlizar
+    HotelesAdminControlador controlador;
 
     //ComboBox para los paises
     DefaultComboBoxModel paisesCmb = new DefaultComboBoxModel();
 
+    //Variable de tipo booleana para confirmar si alguno de los radio buttons esta seleccionado
+    private boolean confirmarCategorias = false;
     private byte categoria;
+    private int contarErroneas;
+    private boolean verificacion = false;
 
     public HotelesModControlador(JfrmModificarHotel vistaMod) {
         this.vistaMod = vistaMod;
         setListeners();
+        validarCampos();
         agregarPaises();
         agregarCiudades();
+        vistaMod.jCmbCiudadesId.setVisible(false);
+        vistaMod.jLblError.setText("");
     }
 
     public void setListeners() {
@@ -70,24 +83,41 @@ public class HotelesModControlador implements ActionListener, KeyListener {
         if (e.getSource() == vistaMod.jBtnCancelarMod) {
             vistaMod.dispose();
         }
+
         if (e.getSource() == vistaMod.jCmbxPaiseMod) {
             agregarCiudades();
         }
+
+        if (e.getSource() == vistaMod.jCmbCiudadesMod) {
+            vistaMod.jCmbCiudadesId.setSelectedIndex(vistaMod.jCmbCiudadesMod.getSelectedIndex());
+        }
+        
+        if(e.getSource()==vistaMod.jBtnModificar){
+            validarCampos();
+            modificarHoteles();
+            confirmarCategorias=false;
+            vistaMod.dispose();
+            controlador= new HotelesAdminControlador(formHoteles);
+            controlador.verHoteles();
+        }
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void validarCampos() {
+        contarErroneas = 0;
+        verificacion = false;
+        Validar valid = new Validar();
+        valid.ValidarSoloNumeros(vistaMod.jTxtTelefonoMod, 7);
+        if (!vistaMod.jTxtCorreoMod.getText().contains("@")
+                || !vistaMod.jTxtCorreoMod.getText().contains(".")) {
+            vistaMod.jLblError.setText("Correo Invalido");
+            contarErroneas++;
+        } else {
+            vistaMod.jLblError.setText(null);
+        }
 
-    @Override
-    public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (contarErroneas == 0) {
+            verificacion = true;
+        }
     }
 
     /*
@@ -100,6 +130,10 @@ public class HotelesModControlador implements ActionListener, KeyListener {
         vistaMod.jCmbxPaiseMod.setModel(paisesCmb);
     }
 
+    /*
+    *Metodo para cargar el ComboBox de ciudades y el ComboBox de CiudadesId para
+    *Modificar
+     */
     public void agregarCiudades() {
         DefaultComboBoxModel ciudadesCmb = new DefaultComboBoxModel();
         DefaultComboBoxModel ciudadesCmbId = new DefaultComboBoxModel();
@@ -113,4 +147,33 @@ public class HotelesModControlador implements ActionListener, KeyListener {
         vistaMod.jCmbCiudadesId.setModel(ciudadesCmbId);
     }
 
+    public void tomarDatos() {
+        hotel.setNombre(vistaMod.jTxtNombreMod.getText());
+        hotel.setCorreoElectronico(vistaMod.jTxtCorreoMod.getText());
+        hotel.setTelefono(Integer.parseInt(vistaMod.jTxtTelefonoMod.getText()));
+        hotel.setDireccion(vistaMod.jTxtDireccionMod.getText());
+        hotel.setCiudad_id(Short.parseShort(String.valueOf(vistaMod.jCmbCiudadesId.getSelectedItem())));
+
+        if (vistaMod.jRbtnCat1Mod.isSelected()) {
+            categoria = 101;
+        } else if (vistaMod.jRbtnCat2Mod.isSelected()) {
+            categoria = 102;
+        } else if (vistaMod.jRbtnCat3Mod.isSelected()) {
+            categoria = 103;
+        } else if (vistaMod.jRbtnCat4Mod.isSelected()) {
+            categoria = 104;
+        } else if (vistaMod.jRbtnCat5Mod.isSelected()) {
+            categoria = 105;
+        }
+        hotel.setCategoria_id(categoria);
+    }
+
+    public void modificarHoteles() {
+        if (verificacion == true) {
+            tomarDatos();
+            JOptionPane.showMessageDialog(vistaMod, dao.modificarHotel(hotel, correo), "Información", JOptionPane.INFORMATION_MESSAGE);
+            vistaMod.jTxtNombreMod.requestFocus();
+            vistaMod.jLblError.setVisible(false);
+        }
+    }
 }

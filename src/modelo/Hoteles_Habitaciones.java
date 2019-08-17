@@ -7,15 +7,17 @@ public class Hoteles_Habitaciones {
     private String categoria;
     private int telefono;
     private String ciudad;
+    private String pais;
     private String direccion;
     private int cantidadHabitaciones;
 
-    public Hoteles_Habitaciones(String nombre, String correoElectronico, String categoria, int telefono, String ciudad, String direccion, int cantidadHabitaciones) {
+    public Hoteles_Habitaciones(String nombre, String correoElectronico, String categoria, int telefono, String ciudad, String pais, String direccion, int cantidadHabitaciones) {
         this.nombre = nombre;
         this.correoElectronico = correoElectronico;
         this.categoria = categoria;
         this.telefono = telefono;
         this.ciudad = ciudad;
+        this.pais = pais;
         this.direccion = direccion;
         this.cantidadHabitaciones = cantidadHabitaciones;
     }
@@ -61,6 +63,14 @@ public class Hoteles_Habitaciones {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
     public String getDireccion() {
