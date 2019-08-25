@@ -57,6 +57,9 @@ public class HotelesAddControlador implements ActionListener, KeyListener {
     private byte categoria;
     private int contarErroneas;
     private boolean verificacion = false;
+    
+    //Controlador
+    HotelesAdminControlador controladorAdmin;
 
     public HotelesAddControlador(JfrmAddHotel addHotel) {
         this.addHotel = addHotel;
@@ -137,6 +140,9 @@ public class HotelesAddControlador implements ActionListener, KeyListener {
 
         if (e.getSource() == addHotel.jBtnCancelar) {
             addHotel.dispose();
+            formHoteles.setEnabled(true);
+            formHoteles.toFront();
+            
         }
     }
 

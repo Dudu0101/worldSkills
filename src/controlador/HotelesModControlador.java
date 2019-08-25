@@ -82,6 +82,8 @@ public class HotelesModControlador implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == vistaMod.jBtnCancelarMod) {
             vistaMod.dispose();
+            formHoteles.setEnabled(true);
+            formHoteles.toFront();
         }
 
         if (e.getSource() == vistaMod.jCmbxPaiseMod) {

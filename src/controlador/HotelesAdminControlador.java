@@ -87,11 +87,17 @@ public class HotelesAdminControlador implements ActionListener, KeyListener, Mou
                 JOptionPane.showMessageDialog(vistaMod, "Seleccione una fila", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
             } else if (confirmar == false) {
                 vistaMod.setVisible(true);
+                vistaMod.setLocationRelativeTo(null);
+                formHoteles.setEnabled(false);
             }
         }
         if (e.getSource() == formHoteles.JBtnAdd) {
             HotelesAddControlador controlador= new HotelesAddControlador(vistaAdd);
             vistaAdd.setVisible(true);
+            vistaAdd.setLocationRelativeTo(null);
+            formHoteles.setEnabled(false);
+            vistaAdd.toFront();
+            vistaAdd.requestFocus();
         }
     }
 
